@@ -31,22 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmLogin));
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
             this.pnLogin = new DevExpress.XtraEditors.PanelControl();
+            this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.lblPassword = new DevExpress.XtraEditors.LabelControl();
+            this.lblUserName = new DevExpress.XtraEditors.LabelControl();
             this.pnLogo = new DevExpress.XtraEditors.PanelControl();
             this.imgLogo = new DevExpress.XtraEditors.SvgImageBox();
-            this.lblUserName = new DevExpress.XtraEditors.LabelControl();
-            this.lblPassword = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).BeginInit();
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnLogin)).BeginInit();
             this.pnLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnLogo)).BeginInit();
             this.pnLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMain
@@ -73,6 +73,55 @@
             this.pnLogin.Size = new System.Drawing.Size(325, 175);
             this.pnLogin.TabIndex = 1;
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Appearance.Options.UseFont = true;
+            this.btnLogin.Location = new System.Drawing.Point(62, 125);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(120, 40);
+            this.btnLogin.TabIndex = 4;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // textEdit2
+            // 
+            this.textEdit2.Location = new System.Drawing.Point(141, 83);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit2.Properties.Appearance.Options.UseFont = true;
+            this.textEdit2.Size = new System.Drawing.Size(173, 36);
+            this.textEdit2.TabIndex = 3;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(141, 25);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Size = new System.Drawing.Size(173, 36);
+            this.textEdit1.TabIndex = 2;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Appearance.Options.UseFont = true;
+            this.lblPassword.Location = new System.Drawing.Point(5, 86);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(109, 30);
+            this.lblPassword.TabIndex = 1;
+            this.lblPassword.Text = "Password";
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserName.Appearance.Options.UseFont = true;
+            this.lblUserName.Location = new System.Drawing.Point(5, 28);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(130, 30);
+            this.lblUserName.TabIndex = 0;
+            this.lblUserName.Text = "User Name";
+            // 
             // pnLogo
             // 
             this.pnLogo.Controls.Add(this.imgLogo);
@@ -94,54 +143,6 @@
             this.imgLogo.TabIndex = 0;
             this.imgLogo.Text = "svgImageBox1";
             // 
-            // lblUserName
-            // 
-            this.lblUserName.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserName.Appearance.Options.UseFont = true;
-            this.lblUserName.Location = new System.Drawing.Point(5, 28);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(130, 30);
-            this.lblUserName.TabIndex = 0;
-            this.lblUserName.Text = "User Name";
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Appearance.Options.UseFont = true;
-            this.lblPassword.Location = new System.Drawing.Point(5, 86);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(109, 30);
-            this.lblPassword.TabIndex = 1;
-            this.lblPassword.Text = "Password";
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(141, 25);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(173, 36);
-            this.textEdit1.TabIndex = 2;
-            // 
-            // textEdit2
-            // 
-            this.textEdit2.Location = new System.Drawing.Point(141, 83);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(173, 36);
-            this.textEdit2.TabIndex = 3;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Appearance.Options.UseFont = true;
-            this.btnLogin.Location = new System.Drawing.Point(62, 125);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(120, 40);
-            this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "Login";
-            // 
             // fmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,11 +162,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnLogin)).EndInit();
             this.pnLogin.ResumeLayout(false);
             this.pnLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnLogo)).EndInit();
             this.pnLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
