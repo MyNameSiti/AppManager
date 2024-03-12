@@ -100,6 +100,16 @@
   <ItemGroup>
     <Content Include="Image\Logo.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Connection\Connection.csproj">
+      <Project>{dd70464c-5542-4992-bfb1-54e3eaff017f}</Project>
+      <Name>Connection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Permission\Permission.csproj">
+      <Project>{4b3613f8-402c-4a5e-a0de-d253626db541}</Project>
+      <Name>Permission</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

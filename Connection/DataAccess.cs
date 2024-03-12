@@ -10,6 +10,7 @@ using System.Configuration;
 using System.Data;
 using System.Collections;
 
+
 namespace Connection
 {
     /// <summary>
@@ -18,11 +19,36 @@ namespace Connection
     /// </summary>
     public static class DataAccess
     {
+        #region Encrypt Dencrypt Connect String
+        public static string EncryptData(string Data)
+        {
+            try
+            {
+                byte[] PP = Encoding.Unicode.GetBytes("IPC");
+                HashAlgorithm HashPassword = HashAlgorithm.Create("MD5");
+                byte[] V = { 0, 9, 0, 4, 4, 9, 5, 9, 4, 2, 2, 2, 0, 6, 8, 2 };
+                RijndaelManaged Encrypt = new RijndaelManaged();
+                Encrypt.Key = HashPassword.ComputeHash(PP);
+                ICryptoTransform encryptor = Encrypt.CreateEncryptor(Encrypt.Key, V);
+                MemoryStream ms = new MemoryStream();
+                CryptoStream cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write);
+                byte[] DataBytes = Encoding.Unicode.GetBytes(Data);
+                cs.Write(DataBytes, 0, DataBytes.Length);
+                cs.Close();
+                byte[] EncryptedData = ms.ToArray();
+                ms.Close();
+                return Convert.ToBase64String(EncryptedData);
+            }
+            catch
+            {
+                return "";
+            }
+        }
         public static string DecryptData(string Data)
         {
             try
             {
-                byte[] PP = Encoding.Unicode.GetBytes("SITI");
+                byte[] PP = Encoding.Unicode.GetBytes("IPC");
                 byte[] DataEncryptedByte = Convert.FromBase64String(Data);
                 HashAlgorithm HashPassword = HashAlgorithm.Create("MD5");
                 byte[] V = { 0, 9, 0, 4, 4, 9, 5, 9, 4, 2, 2, 2, 0, 6, 8, 2 };
@@ -42,11 +68,7 @@ namespace Connection
                 return "";
             }
         }
-
-        /// <summary>
-        /// Returns database connection string.
-        /// </summary>
-        /// 
+        #endregion
         private static string ConnectionString
         {
             get
@@ -61,6 +83,49 @@ namespace Connection
                 }
             }
         }
+
+        #region SQL Excute
+        public static DataTable GetFromDataTable(string SPName, params SqlParameter[] Parameters)
+        {
+            SqlConnection cn = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(SPName, cn);
+            DataTable dt = new DataTable();
+            IDataReader dr;
+
+            try
+            {
+                cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["ConTimeout"].ToString());
+            }
+            catch { };
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            if (Parameters != null)
+                foreach (SqlParameter item in Parameters)
+                    cmd.Parameters.Add(item);
+
+            cn.Open();
+
+            try
+            {
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                if (dr != null)
+                {
+                    dt.Load(dr);
+                }
+            }
+            catch (SqlException ex)
+            {
+                // If we fail to return the SqlDatReader, we need to close the connection
+                if (cn != null) cn.Close();
+                
+            }
+
+            cmd = null;
+            cn = null;
+
+            return dt;
+        }
         public static int Execute(string SPName, params SqlParameter[] Parameters)
         {
             int intErr = 0;
@@ -73,6 +138,35 @@ namespace Connection
             if (Parameters != null)
                 foreach (SqlParameter item in Parameters)
                     cmd.Parameters.Add(item);
+
+            cn.Open();
+            try
+            {
+                intErr = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                if (cn != null) cn.Close();
+                throw ex;
+            }
+            cn.Close();
+
+            cmd = null;
+            cn = null;
+
+            return intErr;
+        }
+        public static int ExecuteSQL(string sqlString)
+        {
+            int intErr = 0;
+            SqlConnection cn = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(sqlString, cn);
+
+            try
+            {
+                cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["ConTimeout"].ToString());
+            }
+            catch { };
 
             cn.Open();
             try
@@ -114,6 +208,42 @@ namespace Connection
 
             return p_dtData;
         }
+        public static DataTable FillDataTableSQL(string p_strSQLCommand)
+        {
+            //bool includeReturnValueParameter = true;
+            DataTable p_dtData = new DataTable();
+            SqlConnection conn = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["ConTimeout"].ToString());
+            }
+            catch { };
+
+            try
+            {
+                PrepareCommandSQL(cmd, conn, (SqlTransaction)null, p_strSQLCommand);
+                da.Fill(p_dtData);
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+                cmd.Dispose();
+                da.Dispose();
+                p_dtData.Dispose();
+            }
+
+            return p_dtData;
+        }
         private static void AssignParameterValues(SqlParameter[] p_arrSQLParameter, object[] p_arrValue)
         {
             if ((p_arrSQLParameter == null) || (p_arrValue == null))
@@ -149,31 +279,37 @@ namespace Connection
             }
             return ds;
         }
+        private static void PrepareCommandSQL(SqlCommand p_cmd, SqlConnection p_conn, SqlTransaction p_trans, string p_strSQLCommand)
+        {
+            //if the provided connection is not open, we will open it
+            if (p_conn.State != ConnectionState.Open)
+            {
+                p_conn.Open();
+            }
 
+            //associate the connection with the command
+            p_cmd.Connection = p_conn;
+
+            //set the command text (SQL statement)
+            p_cmd.CommandText = p_strSQLCommand;
+
+            //if we were provided a transaction, assign it.
+            if (p_trans != null)
+            {
+                p_cmd.Transaction = p_trans;
+            }
+
+            //set the command type
+            p_cmd.CommandType = CommandType.Text;
+        }
+        #endregion
     }
     public sealed class SqlHelperParameterCache
     {
-        //*********************************************************************
-        //
-        // Since this class provides only static methods, make the default constructor private to prevent 
-        // instances from being created with "new SqlHelperParameterCache()".
-        //
-        //*********************************************************************
 
         public SqlHelperParameterCache() { }
 
         private Hashtable paramCache = Hashtable.Synchronized(new Hashtable());
-
-        //*********************************************************************
-        //
-        // resolve at run time the appropriate set of SqlParameters for a stored procedure
-        // 
-        // param name="connectionString" a valid connection string for a SqlConnection 
-        // param name="spName" the name of the stored procedure 
-        // param name="includeReturnValueParameter" whether or not to include their return value parameter 
-        //
-        //*********************************************************************
-
         private SqlParameter[] DiscoverSpParameterSet(string connectionString, string spName, bool includeReturnValueParameter)
         {
             SqlConnection cn = new SqlConnection(connectionString);
@@ -236,7 +372,6 @@ namespace Connection
 
             return discoveredParameters;
         }
-
         private SqlParameter[] CloneParameters(SqlParameter[] originalParameters)
         {
             //deep copy of cached SqlParameter array
@@ -249,34 +384,12 @@ namespace Connection
 
             return clonedParameters;
         }
-
-        //*********************************************************************
-        //
-        // add parameter array to the cache
-        //
-        // param name="connectionString" a valid connection string for a SqlConnection 
-        // param name="commandText" the stored procedure name or T-SQL command 
-        // param name="commandParameters" an array of SqlParamters to be cached 
-        //
-        //*********************************************************************
-
         public void CacheParameterSet(string connectionString, string commandText, params SqlParameter[] commandParameters)
         {
             string hashKey = connectionString + ":" + commandText;
 
             paramCache[hashKey] = commandParameters;
         }
-
-        //*********************************************************************
-        //
-        // Retrieve a parameter array from the cache
-        // 
-        // param name="connectionString" a valid connection string for a SqlConnection 
-        // param name="commandText" the stored procedure name or T-SQL command 
-        // returns an array of SqlParamters
-        //
-        //*********************************************************************
-
         public SqlParameter[] GetCachedParameterSet(string connectionString, string commandText)
         {
             string hashKey = connectionString + ":" + commandText;
@@ -292,37 +405,10 @@ namespace Connection
                 return CloneParameters(cachedParameters);
             }
         }
-
-        //*********************************************************************
-        //
-        // Retrieves the set of SqlParameters appropriate for the stored procedure
-        // 
-        // This method will query the database for this information, and then store it in a cache for future requests.
-        // 
-        // param name="connectionString" a valid connection string for a SqlConnection 
-        // param name="spName" the name of the stored procedure 
-        // returns an array of SqlParameters
-        //
-        //*********************************************************************
-
         public SqlParameter[] GetSpParameterSet(string connectionString, string spName)
         {
             return GetSpParameterSet(connectionString, spName, false);
         }
-
-        //*********************************************************************
-        //
-        // Retrieves the set of SqlParameters appropriate for the stored procedure
-        // 
-        // This method will query the database for this information, and then store it in a cache for future requests.
-        // 
-        // param name="connectionString" a valid connection string for a SqlConnection 
-        // param name="spName" the name of the stored procedure 
-        // param name="includeReturnValueParameter" a bool value indicating whether the return value parameter should be included in the results 
-        // returns an array of SqlParameters
-        //
-        //*********************************************************************
-
         public SqlParameter[] GetSpParameterSet(string connectionString, string spName, bool includeReturnValueParameter)
         {
             string hashKey = connectionString + ":" + spName + (includeReturnValueParameter ? ":include ReturnValue Parameter" : "");

@@ -1,0 +1,9 @@
+D:\Project\PhanMenQuanLy\Permission\bin\Debug\Permission.dll
+D:\Project\PhanMenQuanLy\Permission\bin\Debug\Permission.pdb
+D:\Project\PhanMenQuanLy\Permission\bin\Debug\Connection.dll
+D:\Project\PhanMenQuanLy\Permission\bin\Debug\Connection.pdb
+D:\Project\PhanMenQuanLy\Permission\obj\Debug\Permission.csproj.AssemblyReference.cache
+D:\Project\PhanMenQuanLy\Permission\obj\Debug\Permission.csproj.CoreCompileInputs.cache
+D:\Project\PhanMenQuanLy\Permission\obj\Debug\Permission.csproj.CopyComplete
+D:\Project\PhanMenQuanLy\Permission\obj\Debug\Permission.dll
+D:\Project\PhanMenQuanLy\Permission\obj\Debug\Permission.pdb

@@ -32,8 +32,8 @@
             this.pnMain = new DevExpress.XtraEditors.PanelControl();
             this.pnLogin = new DevExpress.XtraEditors.PanelControl();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
+            this.txtUserName = new DevExpress.XtraEditors.TextEdit();
             this.lblPassword = new DevExpress.XtraEditors.LabelControl();
             this.lblUserName = new DevExpress.XtraEditors.LabelControl();
             this.pnLogo = new DevExpress.XtraEditors.PanelControl();
@@ -42,8 +42,8 @@
             this.pnMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnLogin)).BeginInit();
             this.pnLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnLogo)).BeginInit();
             this.pnLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
@@ -63,8 +63,8 @@
             // pnLogin
             // 
             this.pnLogin.Controls.Add(this.btnLogin);
-            this.pnLogin.Controls.Add(this.textEdit2);
-            this.pnLogin.Controls.Add(this.textEdit1);
+            this.pnLogin.Controls.Add(this.txtPassword);
+            this.pnLogin.Controls.Add(this.txtUserName);
             this.pnLogin.Controls.Add(this.lblPassword);
             this.pnLogin.Controls.Add(this.lblUserName);
             this.pnLogin.Dock = System.Windows.Forms.DockStyle.Right;
@@ -84,23 +84,23 @@
             this.btnLogin.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // textEdit2
+            // txtPassword
             // 
-            this.textEdit2.Location = new System.Drawing.Point(141, 83);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Size = new System.Drawing.Size(173, 36);
-            this.textEdit2.TabIndex = 3;
+            this.txtPassword.Location = new System.Drawing.Point(141, 83);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Size = new System.Drawing.Size(173, 36);
+            this.txtPassword.TabIndex = 3;
             // 
-            // textEdit1
+            // txtUserName
             // 
-            this.textEdit1.Location = new System.Drawing.Point(141, 25);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(173, 36);
-            this.textEdit1.TabIndex = 2;
+            this.txtUserName.Location = new System.Drawing.Point(141, 25);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Properties.Appearance.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserName.Properties.Appearance.Options.UseFont = true;
+            this.txtUserName.Size = new System.Drawing.Size(173, 36);
+            this.txtUserName.TabIndex = 2;
             // 
             // lblPassword
             // 
@@ -148,22 +148,22 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(496, 179);
             this.Controls.Add(this.pnMain);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ImeMode = System.Windows.Forms.ImeMode.On;
             this.Name = "fmLogin";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fmLogin_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fmLogin_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pnMain)).EndInit();
             this.pnMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnLogin)).EndInit();
             this.pnLogin.ResumeLayout(false);
             this.pnLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnLogo)).EndInit();
             this.pnLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
@@ -179,8 +179,8 @@
         private DevExpress.XtraEditors.PanelControl pnLogo;
         private DevExpress.XtraEditors.SvgImageBox imgLogo;
         private DevExpress.XtraEditors.LabelControl lblUserName;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtPassword;
+        private DevExpress.XtraEditors.TextEdit txtUserName;
         private DevExpress.XtraEditors.LabelControl lblPassword;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
     }

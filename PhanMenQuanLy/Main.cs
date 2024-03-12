@@ -15,8 +15,8 @@ namespace PhanMenQuanLy
         public Main()
         {
             InitializeComponent();
-            fmLogin fmLogin = new fmLogin();
-            fmLogin.ShowDialog();
+            //fmLogin fmLogin = new fmLogin();
+            //fmLogin.ShowDialog();
         }
     }
 }

@@ -31,3 +31,7 @@ D:\Project\PhanMenQuanLy\PhanMenQuanLy\obj\Debug\PhanMenQuanLy.csproj.CoreCompil
 D:\Project\PhanMenQuanLy\PhanMenQuanLy\obj\Debug\PhanMenQuanLy.csproj.CopyComplete
 D:\Project\PhanMenQuanLy\PhanMenQuanLy\obj\Debug\PhanMenQuanLy.exe
 D:\Project\PhanMenQuanLy\PhanMenQuanLy\obj\Debug\PhanMenQuanLy.pdb
+D:\Project\PhanMenQuanLy\PhanMenQuanLy\bin\Debug\Connection.dll
+D:\Project\PhanMenQuanLy\PhanMenQuanLy\bin\Debug\Permission.dll
+D:\Project\PhanMenQuanLy\PhanMenQuanLy\bin\Debug\Connection.pdb
+D:\Project\PhanMenQuanLy\PhanMenQuanLy\bin\Debug\Permission.pdb

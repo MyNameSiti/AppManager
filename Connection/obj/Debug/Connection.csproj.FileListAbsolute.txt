@@ -1,0 +1,6 @@
+D:\Project\PhanMenQuanLy\Connection\bin\Debug\Connection.dll
+D:\Project\PhanMenQuanLy\Connection\bin\Debug\Connection.pdb
+D:\Project\PhanMenQuanLy\Connection\obj\Debug\Connection.csproj.AssemblyReference.cache
+D:\Project\PhanMenQuanLy\Connection\obj\Debug\Connection.csproj.CoreCompileInputs.cache
+D:\Project\PhanMenQuanLy\Connection\obj\Debug\Connection.dll
+D:\Project\PhanMenQuanLy\Connection\obj\Debug\Connection.pdb
