@@ -41,5 +41,18 @@ namespace Permission
             }
             return Result;
         }
+        public DataTable GetPermisson(string userName)
+        {
+            DataTable iRead;
+            SqlParameter p1 = new SqlParameter();
+            p1.ParameterName = "@userName";
+            p1.Value = userName;
+            p1.SqlDbType = SqlDbType.VarChar;
+
+
+            iRead = DataAccess.FillDataTable("Main_CheckPermison", p1);
+            return iRead;
+        }
+    
     }
 }

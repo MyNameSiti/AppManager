@@ -12,11 +12,17 @@ namespace PhanMenQuanLy
 {
     public partial class Main : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+        private DataTable Permison;
         public Main()
         {
             InitializeComponent();
             //fmLogin fmLogin = new fmLogin();
             //fmLogin.ShowDialog();
+        }
+
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
