@@ -28,7 +28,7 @@ namespace PhanMenQuanLy
             {
                 _isLoggedIn = true;
                 this.Hide();
-                Main main = new Main();
+                Main main = new Main(txtUserName.Text);
                 main.Show();
             }
             else
