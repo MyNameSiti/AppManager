@@ -12,46 +12,33 @@ namespace PhanMenQuanLy
     {
         public DataTable Permission;
         public DataTable ListMenu;
-        public AccordionControlElement Control(DataRow Name)
+        public void AddControl()
         {
-            AccordionControlElement Menu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            Menu.Name = Name["MenuID"].ToString();
-            Menu.Text = Name["PageName"].ToString();
-            Menu.Tag = Name["Link"];
-            Menu.Tag = Name["PageID"];
-            Menu.Click += AccordionControlElement_Click;
-            return Menu;
-        }
-
-        public AccordionControl AddControl()
-        {
-            AccordionControl listMenu = new AccordionControl();
             foreach (DataRow item in ListMenu.Rows)
             {
                 if (item["MenuParent"].ToString() == "0")
                 {
-                    listMenu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { Control(item) });
+                    AccordionControlElement group = new AccordionControlElement();
+                    group.Style = ElementStyle.Group;
+                    group.Name = item["MenuID"].ToString();
+                    group.Text = item["MenuID"].ToString();
+                    group.Tag = item["Link"];
+                    group.Tag = item["PageID"];
+                    lstMenu.Elements.Add(group);
                 }
                 else
                 {
-
-                    if (listMenu != null)
-                    {
-                        foreach (AccordionControlElement parentElement in listMenu.Elements)
-                        {
-                            if (parentElement.Name == item["MenuParent"].ToString())
-                            {
-                                parentElement.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { Control(item) });
-                                listMenu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] { parentElement });
-                                break;
-                            }
-                        }
-
-                    }
-
+                    AccordionControlElement group = lstMenu.Elements.OfType<AccordionControlElement>().FirstOrDefault(el => el.Name == item["MenuParent"].ToString());
+                    AccordionControlElement Child = new AccordionControlElement();
+                    Child.Style = ElementStyle.Group;
+                    Child.Name = item["MenuID"].ToString();
+                    Child.Text = item["MenuID"].ToString();
+                    Child.Tag = item["Link"];
+                    Child.Tag = item["PageID"];
+                    Child.Click += AccordionControlElement_Click;
+                    group.Elements.Add(Child);
                 }
             }
-            return listMenu;
         }
         private UserControl CreateUserControlInstance(string controlName)
         {
@@ -75,7 +62,7 @@ namespace PhanMenQuanLy
             Permission.Permission premission = new Permission.Permission();
             ListMenu = premission.LoadMenu();
             Permission = premission.GetPermisson(UserID);
-            this.lstMenu = AddControl();
+            AddControl();
 
         }
         private void AccordionControlElement_Click(object sender, EventArgs e)

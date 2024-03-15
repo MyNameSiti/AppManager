@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
+using System.Configuration;
+using System.Data;
+using System.Collections;
 
 
 namespace Connection
@@ -114,9 +116,8 @@ namespace Connection
             }
             catch (SqlException ex)
             {
-                // If we fail to return the SqlDatReader, we need to close the connection
                 if (cn != null) cn.Close();
-
+                throw ex;
             }
 
             cmd = null;

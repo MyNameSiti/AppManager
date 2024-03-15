@@ -31,10 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.fmMain = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.lstMenu = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.menuMain = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
-            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.lstMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -51,22 +49,12 @@
             // lstMenu
             // 
             this.lstMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lstMenu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.menuMain});
             this.lstMenu.Location = new System.Drawing.Point(0, 24);
             this.lstMenu.Name = "lstMenu";
             this.lstMenu.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.lstMenu.Size = new System.Drawing.Size(260, 449);
             this.lstMenu.TabIndex = 1;
             this.lstMenu.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
-            // 
-            // menuMain
-            // 
-            this.menuMain.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement2});
-            this.menuMain.Expanded = true;
-            this.menuMain.Name = "menuMain";
-            this.menuMain.Text = "Main";
             // 
             // fluentDesignFormControl1
             // 
@@ -81,12 +69,6 @@
             // fluentFormDefaultManager1
             // 
             this.fluentFormDefaultManager1.Form = this;
-            // 
-            // accordionControlElement2
-            // 
-            this.accordionControlElement2.Name = "accordionControlElement2";
-            this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement2.Text = "Element2";
             // 
             // Main
             // 
@@ -117,9 +99,7 @@
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer fmMain;
         private DevExpress.XtraBars.Navigation.AccordionControl lstMenu;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement menuMain;
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
     }
 }
 

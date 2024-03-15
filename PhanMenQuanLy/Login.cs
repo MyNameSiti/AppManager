@@ -14,7 +14,7 @@ namespace PhanMenQuanLy
     public partial class fmLogin : Form
     {
         private bool _isLoggedIn = false;
-        
+
         public fmLogin()
         {
             InitializeComponent();
@@ -23,21 +23,26 @@ namespace PhanMenQuanLy
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-          string rs =  new Permission.Permission().Login(txtUserName.Text, txtPassword.Text);
-            if (rs == "0")
+            try
             {
-                _isLoggedIn = true;
-                this.Hide();
-                Main main = new Main(txtUserName.Text);
-                main.Show();
+                string rs = new Permission.Permission().Login(txtUserName.Text, txtPassword.Text);
             }
-            else
-                MessageBox.Show(rs, "Login Error");
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Login Error");
+                return;
+            } 
+            
+            _isLoggedIn = true;
+            this.Hide();
+            Main main = new Main(txtUserName.Text);
+            main.Show();
+
         }
 
         private void fmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-                Application.Exit();
+            Application.Exit();
         }
     }
 }

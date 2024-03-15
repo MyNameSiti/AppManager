@@ -28,12 +28,12 @@ namespace Permission
                 p2.Value = password;
                 p2.SqlDbType = SqlDbType.VarChar;
 
-                strError = DataAccess.FillDataTable("App_Login", p1, p2);
+                strError = DataAccess.GetFromDataTable("App_Login", p1, p2);
                 Result = strError.Rows[0][0].ToString();
             }
             catch (Exception ex)
             {
-                Result = ex.Message;
+                throw ex;
             }
             return Result;
         }
@@ -46,7 +46,7 @@ namespace Permission
             p1.SqlDbType = SqlDbType.VarChar;
 
 
-            iRead = DataAccess.FillDataTable("App_CheckPermison", p1);
+            iRead = DataAccess.GetFromDataTable("App_CheckPermison", p1);
             return iRead;
         }
 
@@ -59,7 +59,7 @@ namespace Permission
             p1.SqlDbType = SqlDbType.VarChar;
 
 
-            iRead = DataAccess.FillDataTable("App_LoadMenu", p1);
+            iRead = DataAccess.GetFromDataTable("App_LoadMenu", p1);
             return iRead;
         }
 
