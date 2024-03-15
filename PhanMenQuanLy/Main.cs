@@ -1,15 +1,8 @@
-﻿using DevExpress.ClipboardSource.SpreadsheetML;
-using DevExpress.XtraBars;
-using DevExpress.XtraBars.Navigation;
-using Permission;
+﻿using DevExpress.XtraBars.Navigation;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 
 
@@ -17,7 +10,7 @@ namespace PhanMenQuanLy
 {
     public partial class Main : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        public DataTable Permison;
+        public DataTable Permission;
         public DataTable ListMenu;
         public AccordionControlElement Control(DataRow Name)
         {
@@ -25,6 +18,7 @@ namespace PhanMenQuanLy
             Menu.Name = Name["MenuID"].ToString();
             Menu.Text = Name["PageName"].ToString();
             Menu.Tag = Name["Link"];
+            Menu.Tag = Name["PageID"];
             Menu.Click += AccordionControlElement_Click;
             return Menu;
         }
@@ -80,7 +74,7 @@ namespace PhanMenQuanLy
             InitializeComponent();
             Permission.Permission premission = new Permission.Permission();
             ListMenu = premission.LoadMenu();
-            Permison = premission.GetPermisson(UserID);
+            Permission = premission.GetPermisson(UserID);
             this.lstMenu = AddControl();
 
         }
@@ -90,14 +84,25 @@ namespace PhanMenQuanLy
             {
                 AccordionControlElement element = (AccordionControlElement)sender;
                 string link = element.Tag.ToString();
-                UserControl userControl = CreateUserControlInstance(link);
-                if (userControl != null)
+                string Role = element.Hint.ToString();
+                if (!Permission.AsEnumerable().Any(row => row.Field<string>("PageID") == Role))
                 {
-                    // Xóa tất cả các UserControl khác trong frMain
-                    this.fmMain.Controls.Clear();
-                    // Thêm UserControl vào frMain
-                    userControl.Dock = DockStyle.Fill;
-                    this.fmMain.Controls.Add(userControl);
+                    MessageBox.Show("Permission Denied");
+                    return;
+                }
+                else
+                {
+
+
+                    UserControl userControl = CreateUserControlInstance(link);
+                    if (userControl != null)
+                    {
+                        // Xóa tất cả các UserControl khác trong frMain
+                        this.fmMain.Controls.Clear();
+                        // Thêm UserControl vào frMain
+                        userControl.Dock = DockStyle.Fill;
+                        this.fmMain.Controls.Add(userControl);
+                    }
                 }
             }
         }
