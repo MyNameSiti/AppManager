@@ -16,7 +16,7 @@ namespace Permission
             string Result;
             try
             {
-                int strError;
+                DataTable strError;
  
                 SqlParameter p1 = new SqlParameter();
                 p1.ParameterName = "@userName";
@@ -28,12 +28,8 @@ namespace Permission
                 p2.Value = password;
                 p2.SqlDbType = SqlDbType.VarChar;
 
-                strError = DataAccess.Execute("App_Login", p1, p2);
-
-                if (strError == 0)
-                    Result = "Failed to Login";
-                else
-                    Result = "0";
+                strError = DataAccess.FillDataTable("App_Login", p1, p2);
+                Result = strError.Rows[0][0].ToString();
             }
             catch (Exception ex)
             {
@@ -41,18 +37,31 @@ namespace Permission
             }
             return Result;
         }
-        public DataTable GetPermisson(string userName)
+        public DataTable GetPermisson(string UserID)
         {
             DataTable iRead;
             SqlParameter p1 = new SqlParameter();
-            p1.ParameterName = "@userName";
-            p1.Value = userName;
+            p1.ParameterName = "@userID";
+            p1.Value = UserID;
             p1.SqlDbType = SqlDbType.VarChar;
 
 
-            iRead = DataAccess.FillDataTable("Main_CheckPermison", p1);
+            iRead = DataAccess.FillDataTable("App_CheckPermison", p1);
             return iRead;
         }
-    
+
+        public DataTable LoadMenu()
+        {
+            DataTable iRead;
+            SqlParameter p1 = new SqlParameter();
+            p1.ParameterName = "@ServiceID";
+            p1.Value = "APP";
+            p1.SqlDbType = SqlDbType.VarChar;
+
+
+            iRead = DataAccess.FillDataTable("App_LoadMenu", p1);
+            return iRead;
+        }
+
     }
 }

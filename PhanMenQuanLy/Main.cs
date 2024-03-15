@@ -1,6 +1,7 @@
 ﻿using DevExpress.ClipboardSource.SpreadsheetML;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
+using Permission;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +12,13 @@ using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace PhanMenQuanLy
 {
     public partial class Main : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
         public DataTable Permison;
+        public DataTable ListMenu;
         public AccordionControlElement Control(DataRow Name)
         {
             AccordionControlElement Menu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -29,7 +32,7 @@ namespace PhanMenQuanLy
         public AccordionControl AddControl()
         {
             AccordionControl listMenu = new AccordionControl();
-            foreach (DataRow item in Permison.Rows)
+            foreach (DataRow item in ListMenu.Rows)
             {
                 if (item["MenuParent"].ToString() == "0")
                 {
@@ -72,10 +75,12 @@ namespace PhanMenQuanLy
             }
             return null;
         }
-        public Main(string Username)
+        public Main(string UserID)
         {
             InitializeComponent();
-            Permison = new Permission.Permission().GetPermisson(Username);
+            Permission.Permission premission = new Permission.Permission();
+            ListMenu = premission.LoadMenu();
+            Permison = premission.GetPermisson(UserID);
             this.lstMenu = AddControl();
 
         }
