@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars.Navigation;
+using Permission;
 using System;
 using System.Data;
 using System.Linq;
@@ -40,21 +41,13 @@ namespace PhanMenQuanLy
                 }
             }
         }
-        private UserControl CreateUserControlInstance(string controlName)
+        private UserControl CreateUserControlInstance(string ucControl)
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            Type[] types = assembly.GetTypes();
-            Type controlType = types.FirstOrDefault(t => t.Name == $"UC_{controlName}" && t.IsSubclassOf(typeof(UserControl)));
 
-            if (controlType != null)
-            {
-                return (UserControl)Activator.CreateInstance(controlType);
-            }
-            else
-            {
-                MessageBox.Show($"UserControl {controlName} not found.");
-            }
-            return null;
+            Permission.ObjectSelect objectSelect = new Permission.ObjectSelect();
+            return new UC.ucMainDesign(objectSelect.GetTable(ucControl), "Sách");
+
+
         }
         public Main(string UserID)
         {
@@ -71,17 +64,18 @@ namespace PhanMenQuanLy
             {
                 AccordionControlElement element = (AccordionControlElement)sender;
                 string link = element.Tag.ToString();
-                string Role = element.Hint.ToString();
-                if (!Permission.AsEnumerable().Any(row => row.Field<string>("PageID") == Role))
-                {
-                    MessageBox.Show("Permission Denied");
-                    return;
-                }
-                else
-                {
+                //string Role = element.Hint.ToString();
+                //if (!Permission.AsEnumerable().Any(row => row.Field<string>("PageID") == Role))
+                //{
+                //    MessageBox.Show("Permission Denied");
+                //    return;
+                //}
+                //else
+                //{
 
-
-                    UserControl userControl = CreateUserControlInstance(link);
+                try
+                {
+                    UserControl userControl = CreateUserControlInstance("App_VehicleType");
                     if (userControl != null)
                     {
                         // Xóa tất cả các UserControl khác trong frMain
@@ -91,6 +85,12 @@ namespace PhanMenQuanLy
                         this.fmMain.Controls.Add(userControl);
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                //}
             }
         }
 

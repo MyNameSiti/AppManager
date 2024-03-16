@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4B3613F8-402C-4A5E-A0DE-D253626DB541}</ProjectGuid>
+    <ProjectGuid>{135B2184-B39F-4A6A-B9B9-E4716FD27927}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Permission</RootNamespace>
-    <AssemblyName>Permission</AssemblyName>
+    <RootNamespace>ObjectSelecting</RootNamespace>
+    <AssemblyName>ObjectSelecting</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,15 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ObjectSelect.cs" />
-    <Compile Include="Permission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Connection\Connection.csproj">
-      <Project>{dd70464c-5542-4992-bfb1-54e3eaff017f}</Project>
-      <Name>Connection</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

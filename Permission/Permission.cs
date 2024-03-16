@@ -49,7 +49,6 @@ namespace Permission
             iRead = DataAccess.GetFromDataTable("App_CheckPermison", p1);
             return iRead;
         }
-
         public DataTable LoadMenu()
         {
             DataTable iRead;
