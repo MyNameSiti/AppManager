@@ -137,35 +137,35 @@ namespace PhanMenQuanLy.UC
             // 
             // btnThem
             // 
-            this.btnThem.Caption = "Thêm";
+            this.btnThem.Caption = "Add";
             this.btnThem.Id = 0;
             this.btnThem.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.plus;
-            this.btnThem.Name = "btnThem";
+            this.btnThem.Name = "btnAdd";
             // 
             // btnSua
             // 
-            this.btnSua.Caption = "Sửa dữ liệu";
+            this.btnSua.Caption = "Edit";
             this.btnSua.Id = 1;
             this.btnSua.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.edit;
-            this.btnSua.Name = "btnSua";
+            this.btnSua.Name = "btnEdit";
             // 
             // btnXoa
             // 
-            this.btnXoa.Caption = "Xóa bỏ";
+            this.btnXoa.Caption = "Delete";
             this.btnXoa.Id = 2;
             this.btnXoa.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.x_button;
-            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Name = "btnDelete";
             // 
             // btnLuu
             // 
-            this.btnLuu.Caption = "Lưu lại";
+            this.btnLuu.Caption = "Save";
             this.btnLuu.Id = 3;
             this.btnLuu.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.save;
-            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Name = "btnSave";
             // 
             // btnExport
             // 
-            this.btnExport.Caption = "Xuất excel";
+            this.btnExport.Caption = "Export";
             this.btnExport.Id = 7;
             this.btnExport.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.export_excel;
             this.btnExport.Name = "btnExport";

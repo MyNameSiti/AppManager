@@ -45,7 +45,7 @@ namespace PhanMenQuanLy
         {
 
             Permission.ObjectSelect objectSelect = new Permission.ObjectSelect();
-            return new UC.ucMainDesign(objectSelect.GetTable(ucControl), "Sách");
+            return new UC.ucMainDesign(objectSelect.GetTable(ucControl), "Sách",this);
 
 
         }

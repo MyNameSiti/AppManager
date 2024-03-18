@@ -189,14 +189,9 @@ namespace Connection
             DataTable p_dtData = new DataTable();
             if ((p_arrValue != null) && (p_arrValue.Length > 0))
             {
-                // Tạo danh sách SqlParameter
                 SqlHelperParameterCache objOHPC = new SqlHelperParameterCache();
                 SqlParameter[] arrSQLParameter = objOHPC.GetSpParameterSet(ConnectionString, p_strSPname);
-
-                // Gán dữ liệu từ các mãng value vô mảng command parameter
                 AssignParameterValues(arrSQLParameter, p_arrValue);
-
-                // gọi hàm overload
                 FillDataTable(ConnectionString, p_dtData, p_strSPname, arrSQLParameter);
             }
 
@@ -209,7 +204,6 @@ namespace Connection
         }
         public static DataTable FillDataTableSQL(string p_strSQLCommand)
         {
-            //bool includeReturnValueParameter = true;
             DataTable p_dtData = new DataTable();
             SqlConnection conn = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -281,25 +275,16 @@ namespace Connection
         }
         private static void PrepareCommandSQL(SqlCommand p_cmd, SqlConnection p_conn, SqlTransaction p_trans, string p_strSQLCommand)
         {
-            //if the provided connection is not open, we will open it
             if (p_conn.State != ConnectionState.Open)
             {
                 p_conn.Open();
             }
-
-            //associate the connection with the command
             p_cmd.Connection = p_conn;
-
-            //set the command text (SQL statement)
             p_cmd.CommandText = p_strSQLCommand;
-
-            //if we were provided a transaction, assign it.
             if (p_trans != null)
             {
                 p_cmd.Transaction = p_trans;
             }
-
-            //set the command type
             p_cmd.CommandType = CommandType.Text;
         }
         #endregion
@@ -338,7 +323,6 @@ namespace Connection
 
                 cmd.Parameters.CopyTo(discoveredParameters, 0);
 
-                //vutran 29/09
                 foreach (SqlParameter parameter in cmd.Parameters)
                 {
                     if (parameter.SqlDbType != SqlDbType.Structured)
@@ -374,7 +358,6 @@ namespace Connection
         }
         private SqlParameter[] CloneParameters(SqlParameter[] originalParameters)
         {
-            //deep copy of cached SqlParameter array
             SqlParameter[] clonedParameters = new SqlParameter[originalParameters.Length];
 
             for (int i = 0, j = originalParameters.Length; i < j; i++)
