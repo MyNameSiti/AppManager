@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceHelper.cs" />
     <Compile Include="UC\ucMainDesign.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +97,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Resources\Resource.en.resx" />
+    <EmbeddedResource Include="Resources\Resource.vi.resx" />
     <EmbeddedResource Include="UC\ucMainDesign.resx">
       <DependentUpon>ucMainDesign.cs</DependentUpon>
     </EmbeddedResource>
