@@ -1,14 +1,6 @@
-﻿using DevExpress.XtraEditors;
-using DevExpress.XtraLayout;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PhanMenQuanLy.UC
 {
@@ -90,7 +82,6 @@ namespace PhanMenQuanLy.UC
                         layoutComboBox.Text = item["ControlName"].ToString();
                         layoutComboBox.TextSize = new System.Drawing.Size(70, 13);
                         this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutComboBox });
-
                         break;
                     default:
                         break;
