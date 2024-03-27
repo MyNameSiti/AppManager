@@ -35,10 +35,10 @@ namespace PhanMenQuanLy.UC
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.btnThem = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSua = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
-            this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAdd = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEdit = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSave = new DevExpress.XtraBars.BarButtonItem();
             this.btnExport = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -49,33 +49,29 @@ namespace PhanMenQuanLy.UC
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.grName = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gridNXB = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.grListName = new DevExpress.XtraEditors.GroupControl();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.grTable = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grTable = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grName)).BeginInit();
             this.grName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridNXB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grListName)).BeginInit();
             this.grListName.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // bar3
@@ -108,10 +104,10 @@ namespace PhanMenQuanLy.UC
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnThem,
-            this.btnSua,
-            this.btnXoa,
-            this.btnLuu,
+            this.btnAdd,
+            this.btnEdit,
+            this.btnDelete,
+            this.btnSave,
             this.barButtonItem5,
             this.btnImport,
             this.barButtonItem7,
@@ -126,42 +122,45 @@ namespace PhanMenQuanLy.UC
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThem, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSua, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoa, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLuu, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnAdd, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnEdit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSave, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
-            // btnThem
+            // btnAdd
             // 
-            this.btnThem.Caption = "Add";
-            this.btnThem.Id = 0;
-            this.btnThem.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.plus;
-            this.btnThem.Name = "btnAdd";
+            this.btnAdd.Caption = "Add";
+            this.btnAdd.Enabled = false;
+            this.btnAdd.Id = 0;
+            this.btnAdd.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.plus;
+            this.btnAdd.Name = "btnAdd";
             // 
-            // btnSua
+            // btnEdit
             // 
-            this.btnSua.Caption = "Edit";
-            this.btnSua.Id = 1;
-            this.btnSua.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.edit;
-            this.btnSua.Name = "btnEdit";
+            this.btnEdit.Caption = "Edit";
+            this.btnEdit.Enabled = false;
+            this.btnEdit.Id = 1;
+            this.btnEdit.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.edit;
+            this.btnEdit.Name = "btnEdit";
             // 
-            // btnXoa
+            // btnDelete
             // 
-            this.btnXoa.Caption = "Delete";
-            this.btnXoa.Id = 2;
-            this.btnXoa.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.x_button;
-            this.btnXoa.Name = "btnDelete";
+            this.btnDelete.Caption = "Delete";
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Id = 2;
+            this.btnDelete.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.x_button;
+            this.btnDelete.Name = "btnDelete";
             // 
-            // btnLuu
+            // btnSave
             // 
-            this.btnLuu.Caption = "Save";
-            this.btnLuu.Id = 3;
-            this.btnLuu.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.save;
-            this.btnLuu.Name = "btnSave";
+            this.btnSave.Caption = "Save";
+            this.btnSave.Id = 3;
+            this.btnSave.ImageOptions.Image = global::PhanMenQuanLy.Properties.Resources.save;
+            this.btnSave.Name = "btnSave";
             // 
             // btnExport
             // 
@@ -232,10 +231,7 @@ namespace PhanMenQuanLy.UC
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.gridNXB);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem18});
             this.layoutControl1.Location = new System.Drawing.Point(2, 23);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
@@ -243,19 +239,6 @@ namespace PhanMenQuanLy.UC
             this.layoutControl1.Size = new System.Drawing.Size(930, 199);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // gridNXB
-            // 
-            this.gridNXB.Location = new System.Drawing.Point(12, 108);
-            this.gridNXB.MenuManager = this.barManager1;
-            this.gridNXB.Name = "gridNXB";
-            this.gridNXB.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gridNXB.Properties.NullText = "[Chọn nhà xuất bản]";
-            this.gridNXB.Properties.PopupView = this.gridView2;
-            this.gridNXB.Size = new System.Drawing.Size(422, 20);
-            this.gridNXB.StyleController = this.layoutControl1;
-            this.gridNXB.TabIndex = 17;
             // 
             // gridView2
             // 
@@ -285,16 +268,6 @@ namespace PhanMenQuanLy.UC
             this.gridColumn27.Visible = true;
             this.gridColumn27.VisibleIndex = 1;
             // 
-            // layoutControlItem18
-            // 
-            this.layoutControlItem18.Control = this.gridNXB;
-            this.layoutControlItem18.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(426, 86);
-            this.layoutControlItem18.Text = "Nhà Xuất Bản";
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem18.TextVisible = false;
-            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -314,27 +287,6 @@ namespace PhanMenQuanLy.UC
             this.grListName.TabIndex = 16;
             this.grListName.Text = "Danh sách sách";
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // grTable
-            // 
-            this.grTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grTable.Location = new System.Drawing.Point(2, 23);
-            this.grTable.MainView = this.gridView1;
-            this.grTable.MenuManager = this.barManager1;
-            this.grTable.Name = "grTable";
-            this.grTable.Size = new System.Drawing.Size(930, 164);
-            this.grTable.TabIndex = 0;
-            this.grTable.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.grTable;
-            this.gridView1.Name = "gridView1";
-            // 
             // gridLookUpEdit1
             // 
             this.gridLookUpEdit1.Location = new System.Drawing.Point(313, 65);
@@ -353,6 +305,27 @@ namespace PhanMenQuanLy.UC
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
+            // grTable
+            // 
+            this.grTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grTable.Location = new System.Drawing.Point(2, 23);
+            this.grTable.MainView = this.gridView1;
+            this.grTable.MenuManager = this.barManager1;
+            this.grTable.Name = "grTable";
+            this.grTable.Size = new System.Drawing.Size(930, 164);
+            this.grTable.TabIndex = 0;
+            this.grTable.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.grTable;
+            this.gridView1.Name = "gridView1";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // ucMainDesign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,16 +343,14 @@ namespace PhanMenQuanLy.UC
             this.grName.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridNXB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grListName)).EndInit();
             this.grListName.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,10 +362,10 @@ namespace PhanMenQuanLy.UC
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
-        private DevExpress.XtraBars.BarButtonItem btnThem;
-        private DevExpress.XtraBars.BarButtonItem btnSua;
-        private DevExpress.XtraBars.BarButtonItem btnXoa;
-        private DevExpress.XtraBars.BarButtonItem btnLuu;
+        private DevExpress.XtraBars.BarButtonItem btnAdd;
+        private DevExpress.XtraBars.BarButtonItem btnEdit;
+        private DevExpress.XtraBars.BarButtonItem btnDelete;
+        private DevExpress.XtraBars.BarButtonItem btnSave;
         private DevExpress.XtraBars.BarButtonItem btnImport;
         private DevExpress.XtraBars.BarButtonItem btnExport;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
@@ -408,11 +379,9 @@ namespace PhanMenQuanLy.UC
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraEditors.GroupControl grListName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private DevExpress.XtraEditors.GridLookUpEdit gridNXB;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
         private DevExpress.XtraGrid.GridControl grTable;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.GridLookUpEdit gridLookUpEdit1;

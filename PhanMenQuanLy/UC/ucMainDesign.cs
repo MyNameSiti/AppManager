@@ -14,30 +14,49 @@ namespace PhanMenQuanLy.UC
     public partial class ucMainDesign : DevExpress.XtraEditors.XtraUserControl
     {
 
-        public ucMainDesign(DataTable dataTable,string controlname, Main frMain)
+        public ucMainDesign(DataTable ControlList, string controlname, Main frMain)
         {
 
             InitializeComponent();
-            grTable.DataSource = dataTable;
             grName.Text = controlname + "Information";
             grListName.Text = controlname + "List";
-            frMain.Permission.Select("PageID = "+ controlname+ "or Reference = "+ controlname);
+            frMain.Permission.Select("PageID = " + controlname + "or Reference = " + controlname);
             foreach (DataRow row in frMain.Permission.Rows)
             {
                 if (row["Action"].ToString().Equals("ADD"))
                 {
-                   // btnAdd.Enabled = true;
+                    btnAdd.Enabled = true;
+                    btnSave.Enabled = true;
                     continue;
                 }
                 if (row["Action"].ToString().Equals("EDIT"))
                 {
-                    //btnEdit.Enabled = true;
+                    btnEdit.Enabled = true;
+                    btnSave.Enabled = true;
+                    continue;
                 }
+                if (row["Action"].ToString().Equals("DELETE"))
+                {
+                    btnDelete.Enabled = true;
+                    continue;
+                }
+                if (row["Action"].ToString().Equals("EXPORT"))
+                {
+                    btnExport.Enabled = true;
+                    continue;
+                }
+            }
+            foreach (var item in ControlList.Rows)
+            {
+                
             }
         }
         public void List()
         {
+            DataTable dataTable = new DataTable();
 
+
+            grTable.DataSource = dataTable;
         }
     }
 }

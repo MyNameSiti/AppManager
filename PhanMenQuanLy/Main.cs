@@ -22,8 +22,7 @@ namespace PhanMenQuanLy
                     AccordionControlElement group = new AccordionControlElement();
                     group.Style = ElementStyle.Group;
                     group.Name = item["MenuID"].ToString();
-                    group.Text = item["MenuID"].ToString();
-                    group.Tag = item["Link"];
+                    group.Text = item["MenuName"].ToString();
                     group.Tag = item["PageID"];
                     lstMenu.Elements.Add(group);
                 }
@@ -34,18 +33,17 @@ namespace PhanMenQuanLy
                     Child.Style = ElementStyle.Group;
                     Child.Name = item["MenuID"].ToString();
                     Child.Text = item["MenuID"].ToString();
-                    Child.Tag = item["Link"];
                     Child.Tag = item["PageID"];
                     Child.Click += AccordionControlElement_Click;
                     group.Elements.Add(Child);
                 }
             }
         }
-        private UserControl CreateUserControlInstance(string ucControl)
+        private UserControl CreateUserControlInstance(string PageID,string PageName)
         {
 
             Permission.ObjectSelect objectSelect = new Permission.ObjectSelect();
-            return new UC.ucMainDesign(objectSelect.GetTable(ucControl), "Sách",this);
+            return new UC.ucMainDesign(objectSelect.GetTable(PageID), PageName, this);
 
 
         }
@@ -63,19 +61,12 @@ namespace PhanMenQuanLy
             if (sender is AccordionControlElement)
             {
                 AccordionControlElement element = (AccordionControlElement)sender;
-                string link = element.Tag.ToString();
-                //string Role = element.Hint.ToString();
-                //if (!Permission.AsEnumerable().Any(row => row.Field<string>("PageID") == Role))
-                //{
-                //    MessageBox.Show("Permission Denied");
-                //    return;
-                //}
-                //else
-                //{
+                string PageID = element.Tag.ToString();
+                string PageName = element.Name.ToString();
 
                 try
                 {
-                    UserControl userControl = CreateUserControlInstance("App_VehicleType");
+                    UserControl userControl = CreateUserControlInstance(PageID, PageName);
                     if (userControl != null)
                     {
                         // Xóa tất cả các UserControl khác trong frMain

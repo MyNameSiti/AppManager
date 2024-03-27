@@ -11,20 +11,15 @@ namespace Permission
 {
     public class ObjectSelect
     {
-        public DataTable GetTable(string tableName)
+        public DataTable GetTable(string PageID)
         {
             DataTable iRead;
             SqlParameter p1 = new SqlParameter();
-            p1.ParameterName = "@tableName";
-            p1.Value = tableName;
+            p1.ParameterName = "@PageID";
+            p1.Value = PageID;
             p1.SqlDbType = SqlDbType.VarChar;
 
-            SqlParameter p2 = new SqlParameter();
-            p2.ParameterName = "@MenuID";
-            p2.Value = tableName;
-            p2.SqlDbType = SqlDbType.VarChar;
-
-            iRead = DataAccess.GetFromDataTable("App_SelectObject", p1, p2);
+            iRead = DataAccess.GetFromDataTable("App_SelectObject", p1);
             return iRead;
         }
     }

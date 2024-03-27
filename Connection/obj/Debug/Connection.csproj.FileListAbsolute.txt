@@ -4,3 +4,9 @@ D:\Project\PhanMenQuanLy\Connection\obj\Debug\Connection.csproj.AssemblyReferenc
 D:\Project\PhanMenQuanLy\Connection\obj\Debug\Connection.csproj.CoreCompileInputs.cache
 D:\Project\PhanMenQuanLy\Connection\obj\Debug\Connection.dll
 D:\Project\PhanMenQuanLy\Connection\obj\Debug\Connection.pdb
+D:\Mysefl\AppManager\Connection\bin\Debug\Connection.dll
+D:\Mysefl\AppManager\Connection\bin\Debug\Connection.pdb
+D:\Mysefl\AppManager\Connection\obj\Debug\Connection.csproj.AssemblyReference.cache
+D:\Mysefl\AppManager\Connection\obj\Debug\Connection.csproj.CoreCompileInputs.cache
+D:\Mysefl\AppManager\Connection\obj\Debug\Connection.dll
+D:\Mysefl\AppManager\Connection\obj\Debug\Connection.pdb
