@@ -32,7 +32,7 @@ namespace PhanMenQuanLy
                     AccordionControlElement Child = new AccordionControlElement();
                     Child.Style = ElementStyle.Group;
                     Child.Name = item["MenuID"].ToString();
-                    Child.Text = item["MenuID"].ToString();
+                    Child.Text = item["MenuName"].ToString();
                     Child.Tag = item["PageID"];
                     Child.Click += AccordionControlElement_Click;
                     group.Elements.Add(Child);
@@ -62,7 +62,7 @@ namespace PhanMenQuanLy
             {
                 AccordionControlElement element = (AccordionControlElement)sender;
                 string PageID = element.Tag.ToString();
-                string PageName = element.Name.ToString();
+                string PageName = element.Text.ToString();
 
                 try
                 {
