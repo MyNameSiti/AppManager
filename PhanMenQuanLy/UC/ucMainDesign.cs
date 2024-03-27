@@ -62,30 +62,40 @@ namespace PhanMenQuanLy.UC
                         TextBox.Size = new System.Drawing.Size(235, 20);
                         TextBox.StyleController = this.layoutControl1;
                         this.layoutControl1.Controls.Add(TextBox);
-                        DevExpress.XtraLayout.LayoutControlItem layoutControlItem = new DevExpress.XtraLayout.LayoutControlItem(); ;
-                        layoutControlItem.Control = TextBox;
+                        DevExpress.XtraLayout.LayoutControlItem layoutTextBox = new DevExpress.XtraLayout.LayoutControlItem(); ;
+                        layoutTextBox.Control = TextBox;
                         if (A)
-                            layoutControlItem.Location = locationA;
+                            layoutTextBox.Location = locationA;
                         else
-                            layoutControlItem.Location = locationB;
-                        layoutControlItem.Size = new System.Drawing.Size(455, 59);
-                        layoutControlItem.Text = item["ControlName"].ToString();
-                        layoutControlItem.TextSize = new System.Drawing.Size(70, 13);
-                        this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutControlItem });
-
-
-
+                            layoutTextBox.Location = locationB;
+                        layoutTextBox.Size = new System.Drawing.Size(455, 59);
+                        layoutTextBox.Text = item["ControlName"].ToString();
+                        layoutTextBox.TextSize = new System.Drawing.Size(70, 13);
+                        this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutTextBox });
 
                         break;
-                    case "LST":
+                    case "CBB":
+                        DevExpress.XtraEditors.ComboBoxEdit comboBox = new DevExpress.XtraEditors.ComboBoxEdit();
+                        comboBox.MenuManager = this.barManager1;
+                        comboBox.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+                        comboBox.Size = new System.Drawing.Size(801, 20);
+                        comboBox.StyleController = this.layoutControl1;
+                        DevExpress.XtraLayout.LayoutControlItem layoutComboBox = new DevExpress.XtraLayout.LayoutControlItem(); ;
+                        layoutComboBox.Control = comboBox;
+                        if (A)
+                            layoutComboBox.Location = locationA;
+                        else
+                            layoutComboBox.Location = locationB;
+                        layoutComboBox.Size = new System.Drawing.Size(455, 59);
+                        layoutComboBox.Text = item["ControlName"].ToString();
+                        layoutComboBox.TextSize = new System.Drawing.Size(70, 13);
+                        this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] { layoutComboBox });
 
                         break;
                     default:
                         break;
                 }
-
                 A = !A;
-
             }
         }
         public void List()
