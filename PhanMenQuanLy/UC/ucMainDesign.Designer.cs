@@ -50,8 +50,6 @@ namespace PhanMenQuanLy.UC
             this.grName = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.grListName = new DevExpress.XtraEditors.GroupControl();
             this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
@@ -242,31 +240,11 @@ namespace PhanMenQuanLy.UC
             // 
             // gridView2
             // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn26,
-            this.gridColumn27});
             this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn26
-            // 
-            this.gridColumn26.Caption = "ID";
-            this.gridColumn26.FieldName = "ID";
-            this.gridColumn26.Name = "gridColumn26";
-            this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 0;
-            // 
-            // gridColumn27
-            // 
-            this.gridColumn27.Caption = "Tên Nhà Xuất Bản";
-            this.gridColumn27.FieldName = "TenNhaXuatBan";
-            this.gridColumn27.Name = "gridColumn27";
-            this.gridColumn27.OptionsColumn.AllowEdit = false;
-            this.gridColumn27.OptionsColumn.ReadOnly = true;
-            this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 1;
+
             // 
             // layoutControlGroup1
             // 
@@ -380,8 +358,6 @@ namespace PhanMenQuanLy.UC
         private DevExpress.XtraEditors.GroupControl grListName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn26;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn27;
         private DevExpress.XtraGrid.GridControl grTable;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.GridLookUpEdit gridLookUpEdit1;
